@@ -1,3 +1,22 @@
 .hidden {
   display: none;
 }
+
+#grid {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  height: 500px;
+  border: 2px solid black;
+}
+
+.row {
+  display: flex;
+  flex: 1;
+}
+
+.row > div {
+  border: 1px solid grey;
+  flex: 1;
+  cursor: pointer;
+}
