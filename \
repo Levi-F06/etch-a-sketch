@@ -1,7 +1,7 @@
 const grid = document.querySelector("#grid");
 const inputs = document.querySelectorAll(".mainInput");
 const mouseStatusText = document.querySelector("#mouseStatusText");
-const resetBtn = document.querySelector("#resetBtn");
+
 const controls = document.querySelectorAll(".control");
 
 let currentSize = 16;
@@ -21,22 +21,21 @@ function createGrid(size) {
         if (mouse) {
           switch (currentMode) {
             case "black":
-              block.style.opacity = "";
+              block.style.opacity = 1;
               block.style.backgroundColor = "black";
               break;
             case "rgb":
-              block.style.opacity = "";
+              block.style.opacity = 1;
               block.style.backgroundColor = getRandomColor();
               break;
             case "shade":
-              if (!block.style.opacity) {
-                block.style.backgroundColor = "rgb(0, 0, 0)";
-                block.style.opacity = "0.1";
+              if (block.style.backgroundColor != "#000000") {
+                block.style.backgroundColor = "#000000";
+                block.style.opacity = 0.1;
               } else {
-                block.style.opacity = (
-                  Number(block.style.opacity) + 0.1
-                ).toString();
+                block.style.opacity = block.style.opacity + 0.1;
               }
+              console.log(block.style.backgroundColor);
               break;
           }
         }
@@ -79,15 +78,11 @@ for (const control of controls) {
 }
 
 function getRandomColor() {
-  return `rgb(${getRandomNumber()}, ${getRandomNumber()}, ${getRandomNumber()})`;
+  return (`rgb(${getRandomNumber()}, ${getRandomNumber()}, ${getRandomNumber()})`);
 }
 
 function getRandomNumber() {
   return Math.floor(Math.random() * 256);
 }
-
-resetBtn.addEventListener("click", () => {
-  createGrid(currentSize);
-})
 
 createGrid(currentSize);
