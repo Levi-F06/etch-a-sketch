@@ -88,6 +88,6 @@ function getRandomNumber() {
 
 resetBtn.addEventListener("click", () => {
   createGrid(currentSize);
-})
+});
 
 createGrid(currentSize);
