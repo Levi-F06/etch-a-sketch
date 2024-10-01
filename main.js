@@ -2,12 +2,11 @@ const grid = document.querySelector("#grid");
 const inputs = document.querySelectorAll(".mainInput");
 const mouseStatusText = document.querySelector("#mouseStatusText");
 
+let currentSize = 16;
 let mouse = false;
 
 function createGrid(size) {
-  if (grid.innerHTML) {
-    grid.innerHTML = "";
-  }
+  grid.innerHTML = "";
   for (let i = 0; i < size; i++) {
     const row = document.createElement("div");
     row.classList.add("row");
@@ -35,14 +34,13 @@ grid.addEventListener("click", () => {
 
 for (const input of inputs) {
   input.addEventListener("input", (e) => {
-    for (const newInputValue of inputs) {
-      if (e.target.value > 100) {
-        e.target.value = 100;
-      }
-      newInputValue.value = e.target.value;
+    currentSize = e.target.value;
+    currentSize = currentSize > 100 ? 100 : currentSize;
+    for (const input of inputs) {
+      input.value = currentSize;
     }
-    createGrid(e.target.value);
+    createGrid(currentSize);
   });
 }
 
-createGrid(16);
+createGrid(currentSize);
