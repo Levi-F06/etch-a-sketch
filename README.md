@@ -5,8 +5,8 @@ I belive this project went well and taught me some new things such as code optim
 
 Images created with this:
 
-!["garfield"]("./images/garfield.png")
+![garfield](./images/garfield.png)
 
-!["Drummer"]("./images/drummmer.png")
+![Drummer](./images/drummmer.png)
 
-!["messafe"]("./images/ily.png")
+![message](./images/ily.png)
